@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>ZoomInfo - GitHub status</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <style>
+        body {
+            font-family:'Roboto';
+        }
+        #wrapper{
+            width:80%;
+            height:100%;
+            margin: auto;
+        }
+        #wrapper img{
+            max-width: 50%;
+        }
+
+        #results {
+            margin-left: 7%;
+        }
+
+        .availability{
+            margin-left: 50px;
+        }
+
+        .capitalize {
+            text-transform: capitalize;
+        }
+
+    </style>
+</head>
+<body ng-app="gitStatus">
+    <div id="wrapper" ng-controller="githubStatusCtrl">
+        <img src="images/github.png" alt="">
+        <button class="btn btn-default" ng-click="getStatus()">Click here to get GitHub status</button>
+
+        <div id="results" ng-show="gitResults">
+            <h3 class="capitalize">Current Status: {{ gitResults[0].status }}</h3>
+            <h3>Availability:</h3>
+            <section ng-repeat="result in gitResults | orderBy: []: true" class="availability">
+                <span class="date">{{ result.created_on | date : 'dd/MM/yyyy HH:mm' : 'gmt' }}: </span>
+                <span class="bodyText capitalize">{{ result.status }}: {{ result.body}}</span>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

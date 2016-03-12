@@ -1,0 +1,15 @@
+{
+  "name": "zoomInfo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Natalie",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "node-rest-client": "^1.8.0"
+  }
+}
