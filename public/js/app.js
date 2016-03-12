@@ -6,7 +6,7 @@ var module = angular.module('gitStatus', []);
 
 module.controller('githubStatusCtrl', function ($scope, $http) {
     $scope.getStatus = function(){
-        $http.get("http://localhost:3000/getStatus")
+        $http.get("/getStatus")
             .then(function (response) {
                 console.log(response.data);
                 $scope.gitResults = response.data;
